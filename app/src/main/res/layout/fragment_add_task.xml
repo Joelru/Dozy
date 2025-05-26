@@ -36,12 +36,6 @@
             android:background="@color/soft_blue"
             android:elevation="2dp" />
 
-<Button
-    android:id="@+id/btnTest"
-    android:text="Add"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"/>
-
         <TextView
             android:id="@+id/textView"
             android:layout_width="match_parent"
@@ -49,4 +43,12 @@
             android:text="TextView" />
     </LinearLayout>
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floating_action_button"
+        android:layout_width="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:contentDescription="floatingButtonAdd"
+        app:srcCompat="@drawable/add_button"/>
 </FrameLayout>

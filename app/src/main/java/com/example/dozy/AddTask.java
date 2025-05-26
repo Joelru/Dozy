@@ -20,6 +20,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -28,6 +30,8 @@ import java.util.Locale;
 public class AddTask extends Fragment {
 
     private List<Long> selectedTimestamps = new ArrayList<>();
+
+    private FloatingActionButton btnAddDate;
     private TextView txtSelectedDates;
     private SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
 
@@ -38,8 +42,7 @@ public class AddTask extends Fragment {
                              @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_add_task, container, false);
 
-        Button btnAddDate = view.findViewById(R.id.btnTest);
-
+        btnAddDate = view.findViewById(R.id.floating_action_button);
 
         btnAddDate.setOnClickListener(v -> mostrarDialogoConVistaPersonalizada());
 
