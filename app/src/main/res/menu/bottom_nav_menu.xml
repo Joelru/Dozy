@@ -2,14 +2,14 @@
     <item
         android:id="@+id/mainFragment"
         android:icon="@drawable/task_complete"
-        android:title="Inicio" />
+        android:title="@string/Init" />
 
     <item
         android:id="@+id/add_task"
         android:icon="@drawable/new_task"
-        android:title="Tareas" />
+        android:title="@string/Task" />
     <item
         android:id="@+id/settingsFragment"
         android:icon="@drawable/ic_settings"
-        android:title="Ajustes" />
+        android:title="@string/Configuration" />
 </menu>
