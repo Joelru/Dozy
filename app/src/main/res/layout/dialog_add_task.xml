@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="@font/poppins_extralight"
-        android:hint="Escribe la tarea" />
+        android:hint="@string/WriteTask" />
 
     <RadioGroup
         android:layout_width="wrap_content"
@@ -22,19 +22,19 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins_black"
-            android:text="Seleccionar día" />
+            android:text="@string/SelectDay" />
 
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins_black"
-            android:text="Lunes a Viernes" />
+            android:text="@string/Week" />
 
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins_black"
-            android:text="Sabado - Domingo" />
+            android:text="@string/Weekend" />
     </RadioGroup>
 
     <CalendarView
@@ -55,13 +55,13 @@
             android:id="@+id/btnCancel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Cancelar" />
+            android:text="@string/Cancel" />
 
         <Button
             android:id="@+id/btnSave"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:text="Aceptar" />
+            android:text="@string/Accept" />
     </LinearLayout>
 </LinearLayout>

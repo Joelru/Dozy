@@ -3,4 +3,21 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="TitleListTask">List of Task</string>
+
+    <!--bottom_nav_menu -->
+    <string name="Init">Inicio</string>
+    <string name="Task">Tareas</string>
+    <string name="Configuration">Ajustes</string>
+
+
+    <!--general -->
+    <string name="Cancel">Cancelar</string>
+    <string name="Accept">Aceptar</string>
+
+    <!--dialog_add_task -->
+    <string name="WriteTask">Escribe la tarea</string>
+    <string name="SelectDay">Seleccionar día</string>
+    <string name="Week">Lunes a Viernes</string>
+    <string name="Weekend">Sabado - Domingo</string>
+
 </resources>
