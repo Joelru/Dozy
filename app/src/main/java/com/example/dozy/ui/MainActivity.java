@@ -1,4 +1,4 @@
-package com.example.dozy.views;
+package com.example.dozy.ui;
 
 import android.os.Bundle;
 
