@@ -25,4 +25,4 @@
 1. Clona el repositorio:
 
 ```bash
-git clone https://github.com/tu-usuario/dozy.git
+git clone https://github.com/Joelru/dozy.git
