@@ -3,29 +3,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_graph"
-    app:startDestination="@id/currentTask">
+    app:startDestination="@id/CurrentTask">
 
     <fragment
-        android:id="@+id/currentTask"
+        android:id="@+id/CurrentTask"
         android:name="com.example.dozy.ui.fragments.CurrentTask"
         android:label="fragment_current_task"
         tools:layout="@layout/fragment_current_task" >
-        <action
-            android:id="@+id/action_currentTask_to_addTask"
-            app:destination="@id/addTask" />
     </fragment>
     <fragment
-        android:id="@+id/addTask"
+        android:id="@+id/AddTask"
         android:name="com.example.dozy.ui.fragments.AddTask"
         android:label="fragment_add_task"
         tools:layout="@layout/fragment_add_task" >
-        <action
-            android:id="@+id/action_addTask_to_settings"
-            app:destination="@id/settings" />
     </fragment>
 
     <fragment
-        android:id="@+id/settings"
+        android:id="@+id/Settings"
         android:name="com.example.dozy.ui.fragments.Settings"
         android:label="fragment_settings"
         tools:layout="@layout/fragment_settings" />
