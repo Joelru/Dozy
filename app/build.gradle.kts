@@ -32,7 +32,8 @@ android {
 }
 
 dependencies {
-
+    annotationProcessor(libs.room.compiler)
+    implementation(libs.room.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.activity)
@@ -42,4 +43,5 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
+
 }

@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/homeFragment"
+        android:id="@+id/CurrentTask"
         android:icon="@drawable/ic_task_main"
         android:title="Inicio" />
     <item
-        android:id="@+id/tasksFragment"
+        android:id="@+id/AddTask"
         android:icon="@drawable/ic_new_task"
         android:title="Tareas" />
     <item
-        android:id="@+id/profileFragment"
+        android:id="@+id/Settings"
         android:icon="@drawable/ic_settings"
         android:title="Perfil" />
 </menu>
