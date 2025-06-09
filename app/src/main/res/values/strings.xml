@@ -2,4 +2,21 @@
     <string name="app_name">Dozy</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="add_task_title">Add Task</string>
+    <string name="task_title_hint">Title</string>
+    <string name="task_description_hint">Description</string>
+    <string name="select_date">Date</string>
+    <string name="no_repeat">Do not repeat</string>
+    <string name="optional">(Optional)</string>
+    <string name="every_weekday">Every weekday</string>
+    <string name="every_day">Every day</string>
+    <string name="save_button">Save</string>
+    <string name="select_days">Select Days</string>
+    <string name="monday">Monday</string>
+    <string name="tuesday">Tuesday</string>
+    <string name="wednesday">Wednesday</string>
+    <string name="thursday">Thursday</string>
+    <string name="friday">Friday</string>
+    <string name="saturday">Saturday</string>
+    <string name="sunday">Sunday</string>
 </resources>
