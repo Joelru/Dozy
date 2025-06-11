@@ -1,11 +1,34 @@
 package com.example.dozy.ui.fragments;
 
+import android.app.DatePickerDialog;
 import android.os.Bundle;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.room.Room;
+import androidx.room.RoomDatabase;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.Toast;
+
 import com.example.dozy.R;
+import com.example.dozy.data.Task;
+import com.example.dozy.data.TaskDatabase;
+import com.example.dozy.databinding.FragmentAddTaskBinding;
+import com.example.dozy.ui.MainActivity;
+import com.example.dozy.utils.Utils;
+
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -22,6 +45,9 @@ public class AddTask extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private String date = "00/00/00";
+    private FragmentAddTaskBinding binding;
+
 
     public AddTask() {
         // Required empty public constructor
@@ -57,7 +83,64 @@ public class AddTask extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_add_task, container, false);
+        binding = FragmentAddTaskBinding.inflate(inflater, container, false);
+        return binding.getRoot();
     }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        setupButtons();
+        initDB();
+        validations();
+
+    }
+
+    private boolean validations() {
+        if (Utils.validateText(binding.titleTask) && Utils.validateText(binding.descriptionTask)) {
+            return true;
+        }
+        return false;
+    }
+
+    private void initDB() {
+        RoomDatabase.Builder<TaskDatabase> tasks = Room.databaseBuilder(getContext(),
+                TaskDatabase.class,
+                "tasks");
+        tasks.allowMainThreadQueries().build();
+    }
+
+    private void setupButtons() {
+        binding.calendarImgBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showCalendar();
+            }
+        });
+        binding.saveTaskBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+    }
+
+    private void showCalendar() {
+
+        final Calendar calendar = Calendar.getInstance();
+        int anio = calendar.get(Calendar.YEAR);
+        int mes = calendar.get(Calendar.MONTH);
+        int dia = calendar.get(Calendar.DAY_OF_MONTH);
+
+        DatePickerDialog datePickerDialog = new DatePickerDialog(
+
+                binding.calendarImgBtn.getContext(),
+                (view, year, monthOfYear, dayOfMonth) -> {
+                    date = dayOfMonth + "/" + monthOfYear + "/" + year;
+                },
+                anio, mes, dia
+        );
+        datePickerDialog.show();
+    }
+
 }
