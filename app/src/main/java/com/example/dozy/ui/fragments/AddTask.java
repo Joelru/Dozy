@@ -92,7 +92,7 @@ public class AddTask extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         setupButtons();
         initDB();
-        validations();
+//        validations();
 
     }
 

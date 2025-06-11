@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <solid
-        android:color="@color/Soft_mustard_yellow"/>
+    <solid android:color="@color/Soft_mustard_yellow" />
     <stroke
         android:width="2dp"
         android:color="@color/mustard_yellow" />
-    <corners android:radius="10dp" />
+    <corners
+        android:topLeftRadius="15dp"
+        android:topRightRadius="15dp" />
 
 </shape>
