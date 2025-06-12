@@ -6,4 +6,18 @@
     </style>
 
     <style name="Theme.Dozy" parent="Base.Theme.Dozy" />
+
+    <style name="Widget.AppCompat.TextView.Title" parent="Base.Theme.Dozy">
+        <item name="android:fontFamily">@font/poppins_black</item>
+        <item name="textAllCaps">true</item>
+        <item name="android:textSize">35sp</item>
+        <item name="android:textColor">@color/dark_blue</item>
+    </style>
+
+    <style name="Widget.AppCompat.TextView.Standard" parent="Base.Theme.Dozy">
+        <item name="android:fontFamily">@font/poppins_black</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/strong_blue</item>
+
+    </style>
 </resources>
