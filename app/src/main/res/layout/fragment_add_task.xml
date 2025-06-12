@@ -16,56 +16,50 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/round_bottom_title_style"
+            android:background="@drawable/style_round_bottom_titles"
             android:orientation="vertical">
 
             <TextView
+                style="@style/Widget.AppCompat.TextView.Title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center|bottom"
                 android:layout_marginTop="60dp"
-                android:fontFamily="@font/poppins_black"
-                android:text="@string/add_task_title"
-                android:textColor="@color/dark_blue"
-                android:textSize="35sp" />
+                android:text="@string/add_task_title" />
         </LinearLayout>
 
 
         <TextView
+            style="@style/Widget.AppCompat.TextView.Standard"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
             android:layout_marginTop="40dp"
-            android:fontFamily="@font/poppins_black"
-            android:text="@string/task_title_hint"
-            android:textColor="@color/strong_blue"
-            android:textSize="20sp" />
+            android:text="@string/task_title_hint" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            app:errorIconTint="@color/mint_green"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="30dp"
-            android:layout_marginVertical="5dp">
+            android:layout_marginVertical="5dp"
+            app:errorIconTint="@color/mint_green">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/title_task"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/round_style_green"
+                android:background="@drawable/style_round_green"
                 android:fontFamily="@font/poppins_black"
                 android:textAllCaps="true" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
+            style="@style/Widget.AppCompat.TextView.Standard"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
             android:layout_marginTop="20dp"
-            android:fontFamily="@font/poppins_black"
-            android:text="@string/task_description_hint"
-            android:textColor="@color/strong_blue"
-            android:textSize="20sp" />
+            android:text="@string/task_description_hint" />
 
         <EditText
             android:id="@+id/description_task"
@@ -73,7 +67,7 @@
             android:layout_height="80dp"
             android:layout_marginHorizontal="30dp"
             android:layout_marginVertical="5dp"
-            android:background="@drawable/round_style_green"
+            android:background="@drawable/style_round_green"
             android:hint="@string/optional"
             android:padding="12dp" />
 
@@ -84,21 +78,19 @@
             android:orientation="horizontal">
 
             <TextView
+                style="@style/Widget.AppCompat.TextView.Standard"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center|start"
                 android:layout_marginStart="35dp"
                 android:layout_weight="1"
-                android:fontFamily="@font/poppins_black"
-                android:text="@string/select_date"
-                android:textColor="@color/strong_blue"
-                android:textSize="20sp" />
+                android:text="@string/select_date" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="35dp"
-                android:background="@drawable/round_style_soft_blue"
+                android:background="@drawable/style_round_soft_blue"
                 android:gravity="end"
                 android:orientation="vertical"
                 android:paddingHorizontal="25dp"
@@ -124,20 +116,18 @@
 
             <com.google.android.material.checkbox.MaterialCheckBox
                 android:id="@+id/check_day_task"
+                style="@style/Widget.AppCompat.TextView.Standard"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/poppins_blackitalic"
                 android:text="@string/every_day"
-                android:textColor="@color/strong_blue"
                 app:buttonTint="@color/mint_green" />
 
             <com.google.android.material.checkbox.MaterialCheckBox
                 android:id="@+id/check_week_task"
+                style="@style/Widget.AppCompat.TextView.Standard"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/poppins_blackitalic"
                 android:text="@string/every_weekday"
-                android:textColor="@color/strong_blue"
                 app:buttonTint="@color/mint_green" />
 
         </LinearLayout>
@@ -147,22 +137,21 @@
             android:layout_height="match_parent"
             android:layout_gravity="center"
             android:layout_marginTop="70dp"
-            android:background="@drawable/round_top_style"
+            android:background="@drawable/style_round_top"
             android:orientation="vertical"
-            android:paddingVertical="40dp"
-            android:paddingHorizontal="60dp">
+            android:paddingHorizontal="60dp"
+            android:paddingVertical="40dp">
 
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/save_task_btn"
+                style="@style/Widget.AppCompat.TextView.Standard"
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
                 android:layout_gravity="center"
-                android:background="@drawable/round_style_yellow"
-                android:fontFamily="@font/poppins_black"
+                android:background="@drawable/style_round_yellow"
                 android:paddingHorizontal="65dp"
-                android:text="@string/save_button"
-                android:textColor="@color/strong_blue" />
+                android:text="@string/save_button" />
         </LinearLayout>
 
 
