@@ -12,7 +12,7 @@
 
 ## 🛠 Tecnologías usadas
 
-- Java 7+
+- Java 8+
 - Android Studio
 - ViewBinding
 - SQLite / Room
