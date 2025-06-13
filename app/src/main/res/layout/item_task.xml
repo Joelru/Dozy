@@ -9,12 +9,13 @@
     android:background="@drawable/style_round_soft_blue">
 
     <LinearLayout
+        android:id="@+id/layoutCompletedTask"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal">
 
         <CheckBox
-            android:id="@+id/cbItem"
+            android:id="@+id/checkBoxCompleted"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:buttonTint="@color/soft_blue" />
@@ -22,10 +23,12 @@
         <TextView
             android:id="@+id/contentItem"
             style="@style/Widget.AppCompat.TextView.Standard"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:layout_marginEnd="20dp"
-            android:singleLine="true"
+            android:ellipsize="end"
+            android:maxLines="1"
             android:textSize="15sp" />
 
     </LinearLayout>

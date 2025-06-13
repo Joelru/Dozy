@@ -15,14 +15,14 @@ public class Task {
     public String dateTask;
     public String repeatType;
     public boolean isRecurrent;
-    public boolean complete;
+    public boolean completed;
 
-    public Task( String titleTask, String contentDescription, String dateTask, String repeatType, boolean isRecurrent, boolean complete) {
+    public Task( String titleTask, String contentDescription, String dateTask, String repeatType, boolean isRecurrent, boolean completed) {
         this.titleTask = titleTask;
         this.contentDescription = contentDescription;
         this.dateTask = dateTask;
         this.repeatType = repeatType;
         this.isRecurrent = isRecurrent;
-        this.complete = complete;
+        this.completed = completed;
     }
 }

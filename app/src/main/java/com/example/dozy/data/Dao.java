@@ -1,5 +1,6 @@
 package com.example.dozy.data;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
@@ -20,10 +21,10 @@ public interface Dao {
     void delete(Task task);
 
     @Query("SELECT * FROM tasks ORDER BY id DESC")
-    List<Task> getAllTasks();
+    LiveData<List<Task>> getAllTasks();
 
     // Obtener solo tareas completadas
-    @Query("SELECT * FROM tasks WHERE complete = 1")
+    @Query("SELECT * FROM tasks WHERE completed = 1")
     List<Task> getCompletedTasks();
 
     // Obtener tareas por fecha exacta (para tareas no recurrentes)

@@ -29,6 +29,7 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -47,6 +48,8 @@ public class AddTask extends Fragment {
     private String mParam2;
     private String date = "00/00/00";
     private FragmentAddTaskBinding binding;
+    private TaskDatabase tasks;
+    private List<Task> taskList;
 
 
     public AddTask() {
@@ -104,10 +107,14 @@ public class AddTask extends Fragment {
     }
 
     private void initDB() {
-        RoomDatabase.Builder<TaskDatabase> tasks = Room.databaseBuilder(getContext(),
+        tasks = Room.databaseBuilder(getContext(),
                 TaskDatabase.class,
-                "tasks");
-        tasks.allowMainThreadQueries().build();
+                "task_database").allowMainThreadQueries().build();
+
+    }
+
+    private void insertData(String title, String description, String date, String repeatType, boolean isRecurrent, boolean isCompleted) {
+        tasks.taskDao().insert(new Task(title, description, date, repeatType, isRecurrent, isCompleted));
     }
 
     private void setupButtons() {
@@ -120,7 +127,8 @@ public class AddTask extends Fragment {
         binding.saveTaskBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                validations();
+                insertData(Objects.requireNonNull(binding.titleTask.getText()).toString(), binding.descriptionTask.getText().toString(), date, "diary", true, false);
             }
         });
     }
