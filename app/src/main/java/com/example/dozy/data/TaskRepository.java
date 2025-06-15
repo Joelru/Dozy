@@ -3,6 +3,7 @@ package com.example.dozy.data;
 import androidx.lifecycle.LiveData;
 
 import java.util.List;
+import java.util.concurrent.Executors;
 
 public class TaskRepository {
     private Dao taskDao;
@@ -13,6 +14,10 @@ public class TaskRepository {
 
     public LiveData<List<Task>> getAllTask() {
         return taskDao.getAllTasks();
+    }
+
+    public void insert(Task task) {
+        Executors.newSingleThreadExecutor().execute(() -> taskDao.insert(task));
     }
 
 }

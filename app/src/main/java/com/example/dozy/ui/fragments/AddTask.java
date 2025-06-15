@@ -6,6 +6,8 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.fragment.NavHostFragment;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
@@ -22,6 +24,7 @@ import com.example.dozy.R;
 import com.example.dozy.data.Task;
 import com.example.dozy.data.TaskDatabase;
 import com.example.dozy.databinding.FragmentAddTaskBinding;
+import com.example.dozy.model.TaskViewModel;
 import com.example.dozy.ui.MainActivity;
 import com.example.dozy.utils.Utils;
 
@@ -42,6 +45,7 @@ public class AddTask extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    private TaskViewModel taskViewModel;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -95,7 +99,7 @@ public class AddTask extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         setupButtons();
         initDB();
-//        validations();
+        taskViewModel = new ViewModelProvider(requireActivity()).get(TaskViewModel.class);
 
     }
 
@@ -107,7 +111,7 @@ public class AddTask extends Fragment {
     }
 
     private void initDB() {
-        tasks = Room.databaseBuilder(getContext(),
+        tasks = Room.databaseBuilder(requireActivity(),
                 TaskDatabase.class,
                 "task_database").allowMainThreadQueries().build();
 
@@ -127,8 +131,19 @@ public class AddTask extends Fragment {
         binding.saveTaskBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                validations();
-                insertData(Objects.requireNonNull(binding.titleTask.getText()).toString(), binding.descriptionTask.getText().toString(), date, "diary", true, false);
+                if (validations()) {
+                    String title = Objects.requireNonNull(binding.titleTask.getText()).toString();
+                    String description = binding.descriptionTask.getText().toString();
+                    String dates = date; 
+                    String repeatType = "diary";
+                    boolean isRecurrent = true;
+                    boolean isCompleted = false;
+
+                    Task newTask = new Task(title, description, dates, repeatType, isRecurrent, isCompleted);
+                    taskViewModel.insert(newTask);
+
+                    NavHostFragment.findNavController(requireParentFragment()).popBackStack();
+                }
             }
         });
     }

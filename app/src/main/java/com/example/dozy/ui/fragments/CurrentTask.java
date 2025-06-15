@@ -84,7 +84,7 @@ public class CurrentTask extends Fragment implements OnTaskListener {
         binding.rvTaskList.setLayoutManager(new LinearLayoutManager(getContext()));
         binding.rvTaskList.setAdapter(adapter);
 
-        taskViewModel = new ViewModelProvider(this).get(TaskViewModel.class);
+        taskViewModel = new ViewModelProvider(requireActivity()).get(TaskViewModel.class);
 
         taskViewModel.getAllTask().observe(getViewLifecycleOwner(), tasks -> adapter.submitList(tasks));
     }

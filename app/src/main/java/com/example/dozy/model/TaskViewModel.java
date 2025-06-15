@@ -26,4 +26,9 @@ public class TaskViewModel extends AndroidViewModel {
     public LiveData<List<Task>> getAllTask() {
         return allTask;
     }
+
+    public void insert(Task task) {
+        repository.insert(task);
+    }
+
 }
