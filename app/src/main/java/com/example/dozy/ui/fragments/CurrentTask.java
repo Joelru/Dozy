@@ -3,19 +3,33 @@ package com.example.dozy.ui.fragments;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.dozy.R;
+import com.example.dozy.data.Task;
+import com.example.dozy.databinding.FragmentAddTaskBinding;
+import com.example.dozy.databinding.FragmentCurrentTaskBinding;
+import com.example.dozy.model.TaskViewModel;
+import com.example.dozy.ui.adapters.AdapterListTask;
+import com.example.dozy.ui.interfaces.OnTaskListener;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link CurrentTask#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class CurrentTask extends Fragment {
+public class CurrentTask extends Fragment implements OnTaskListener {
+    private AdapterListTask adapter;
+    private FragmentCurrentTaskBinding binding;
+    private TaskViewModel taskViewModel;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -60,7 +74,27 @@ public class CurrentTask extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_current_task, container, false);
+        binding = FragmentCurrentTaskBinding.inflate(inflater, container, false);
+        initRecycler();
+        return binding.getRoot();
+    }
+
+    private void initRecycler() {
+        adapter = new AdapterListTask(this);
+        binding.rvTaskList.setLayoutManager(new LinearLayoutManager(getContext()));
+        binding.rvTaskList.setAdapter(adapter);
+
+        taskViewModel = new ViewModelProvider(requireActivity()).get(TaskViewModel.class);
+
+        taskViewModel.getAllTask().observe(getViewLifecycleOwner(), tasks -> adapter.submitList(tasks));
+    }
+
+    public void onTaskClick(Task task) {
+
+    }
+
+    @Override
+    public void onTaskLongClick(Task task) {
+
     }
 }
