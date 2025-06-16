@@ -18,9 +18,9 @@ public interface Dao {
     void update(Task task);
 
     @Delete
-    void delete(Task task);
+    void remove(Task task);
 
-    @Query("SELECT * FROM tasks ORDER BY id DESC")
+    @Query("SELECT * FROM tasks WHERE completed = 0 ORDER BY id DESC ")
     LiveData<List<Task>> getAllTasks();
 
     // Obtener solo tareas completadas

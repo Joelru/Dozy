@@ -19,5 +19,11 @@ public class TaskRepository {
     public void insert(Task task) {
         Executors.newSingleThreadExecutor().execute(() -> taskDao.insert(task));
     }
+    public void remove(Task task) {
+        Executors.newSingleThreadExecutor().execute(() -> taskDao.remove(task));
+    }
+ public void update(Task task) {
+        Executors.newSingleThreadExecutor().execute(() -> taskDao.update(task));
+    }
 
 }

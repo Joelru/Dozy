@@ -17,6 +17,7 @@ import com.example.dozy.databinding.FragmentCurrentTaskBinding;
 import com.example.dozy.model.TaskViewModel;
 import com.example.dozy.ui.adapters.AdapterListTask;
 import com.example.dozy.ui.interfaces.OnTaskListener;
+import com.example.dozy.utils.SlideInLeftAnimator;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -83,6 +84,7 @@ public class CurrentTask extends Fragment implements OnTaskListener {
         adapter = new AdapterListTask(this);
         binding.rvTaskList.setLayoutManager(new LinearLayoutManager(getContext()));
         binding.rvTaskList.setAdapter(adapter);
+        binding.rvTaskList.setItemAnimator(new SlideInLeftAnimator());
 
         taskViewModel = new ViewModelProvider(requireActivity()).get(TaskViewModel.class);
 
