@@ -14,7 +14,7 @@ public class SlideInLeftAnimator extends DefaultItemAnimator {
         view.animate()
                 .translationX(0)
                 .alpha(1)
-                .setDuration(400)
+                .setDuration(1000)
                 .setListener(null);
         return super.animateAdd(holder);
     }

@@ -10,7 +10,10 @@
     <color name="light_gray">#F7F7F7</color>
     <color name="light_crem">#fcf8ef</color>
     <color name="dark_gray">#333333</color>
+    <color name="default_gray">#acacac</color>
     <color name="dark_blue">#264148</color>
     <color name="Soft_mustard_yellow">#fae7ae</color>
     <color name="mustard_yellow">#f5dd8d</color>
+    <color name="red_light">#FF1744</color>
+    <color name="black_transparent">#34000000</color>
 </resources>

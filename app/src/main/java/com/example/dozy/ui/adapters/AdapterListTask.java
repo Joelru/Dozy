@@ -1,6 +1,5 @@
 package com.example.dozy.ui.adapters;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +13,7 @@ import com.example.dozy.databinding.ItemTaskBinding;
 import com.example.dozy.model.TaskViewModel;
 import com.example.dozy.ui.fragments.CurrentTask;
 import com.example.dozy.ui.interfaces.OnTaskListener;
+import com.example.dozy.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -60,12 +60,11 @@ public class AdapterListTask extends RecyclerView.Adapter<AdapterListTask.ViewHo
             if (!binding.contentItem.getText().toString().equals(task.titleTask)) {
                 binding.contentItem.setText(task.titleTask);
             }
-            ;
             binding.layoutCompletedTask.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     task.completed = true;
-                    binding.checkBoxCompleted.setChecked(task.completed);
+                    Utils.modifyStyle(view.getContext(), binding.contentItem, binding.layoutCompletedTask, binding.checkButtomCompleted, task.completed);
                     viewModel.update(task);
 
                     int position = getAdapterPosition();
@@ -86,5 +85,8 @@ public class AdapterListTask extends RecyclerView.Adapter<AdapterListTask.ViewHo
         notifyDataSetChanged();
     }
 
+    public Task getItemAt(int position) {
+        return taskList.get(position);
+    }
 
 }

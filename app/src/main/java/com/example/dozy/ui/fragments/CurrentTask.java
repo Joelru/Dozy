@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.view.LayoutInflater;
@@ -18,6 +19,8 @@ import com.example.dozy.model.TaskViewModel;
 import com.example.dozy.ui.adapters.AdapterListTask;
 import com.example.dozy.ui.interfaces.OnTaskListener;
 import com.example.dozy.utils.SlideInLeftAnimator;
+import com.example.dozy.utils.SwipeToActionCallback;
+import com.example.dozy.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,6 +34,7 @@ public class CurrentTask extends Fragment implements OnTaskListener {
     private AdapterListTask adapter;
     private FragmentCurrentTaskBinding binding;
     private TaskViewModel taskViewModel;
+    private Task task = null;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -77,7 +81,27 @@ public class CurrentTask extends Fragment implements OnTaskListener {
                              Bundle savedInstanceState) {
         binding = FragmentCurrentTaskBinding.inflate(inflater, container, false);
         initRecycler();
+        initCallBacks();
         return binding.getRoot();
+    }
+
+    private void initCallBacks() {
+        SwipeToActionCallback callback = new SwipeToActionCallback(requireContext()) {
+            @Override
+            public void onDeleteConfirmed(int pos) {
+                Task task = adapter.getItemAt(pos);
+                taskViewModel.remove(task);
+            }
+
+            @Override
+            public void onCompleteConfirmed(int pos) {
+                Task task = adapter.getItemAt(pos);
+                task.completed = true;
+                taskViewModel.update(task);
+            }
+        };
+
+        new ItemTouchHelper(callback).attachToRecyclerView(binding.rvTaskList);
     }
 
     private void initRecycler() {
