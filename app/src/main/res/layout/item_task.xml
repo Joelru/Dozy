@@ -1,36 +1,112 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="50dp"
+    android:layout_height="wrap_content"
     android:layout_marginHorizontal="40dp"
-    android:layout_marginVertical="5dp"
-    android:background="@drawable/style_round_soft_blue">
+    android:layout_marginVertical="8dp"
+    android:elevation="4dp"
+    app:cardCornerRadius="15dp">
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/layoutCompletedTask"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal">
+        android:layout_height="wrap_content"
+        android:paddingTop="5dp"
+        android:paddingBottom="10dp">
 
-        <CheckBox
-            android:id="@+id/checkBoxCompleted"
-            android:layout_width="wrap_content"
+        <RadioButton
+
+            android:id="@+id/check_buttom_completed"
+            android:layout_width="30dp"
             android:layout_height="wrap_content"
-            app:buttonTint="@color/soft_blue" />
+            android:layout_marginStart="8dp"
+            app:buttonTint="@color/default_gray"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/contentItem"
-            style="@style/Widget.AppCompat.TextView.Standard"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_marginEnd="20dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="25dp"
             android:ellipsize="end"
+            android:fontFamily="@font/poppins_medium"
             android:maxLines="1"
-            android:textSize="15sp" />
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/check_buttom_completed"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:hint="Design system architecture" />
 
-    </LinearLayout>
+        <LinearLayout
+            android:id="@+id/categoryItem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="6dp"
+            android:orientation="horizontal"
+            android:padding="2dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/check_buttom_completed"
+            app:layout_constraintTop_toBottomOf="@id/contentItem1">
 
-</LinearLayout>
+
+            <ImageView
+                android:id="@+id/iconCategory"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_marginStart="5dp"
+                android:background="@drawable/ic_category_work"
+                android:backgroundTint="@color/default_gray" />
+
+            <TextView
+                android:id="@+id/contentCategory"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="5dp"
+                android:ellipsize="end"
+                android:fontFamily="@font/poppins_medium"
+                android:maxLines="1"
+                android:textSize="10sp"
+                app:layout_constraintBottom_toBottomOf="@id/iconCategory"
+                app:layout_constraintStart_toEndOf="@id/iconCategory"
+                app:layout_constraintTop_toTopOf="@id/iconCategory"
+                tools:hint="Work" />
+        </LinearLayout>
+
+
+        <ImageView
+            android:id="@+id/iconDate"
+            android:layout_width="12dp"
+            android:layout_height="12dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginBottom="4dp"
+            android:background="@drawable/ic_calendar"
+            android:backgroundTint="@color/default_gray"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/categoryItem" />
+
+        <TextView
+            android:id="@+id/contentDate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/poppins_medium"
+            android:maxLines="1"
+            android:textSize="10sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/iconDate"
+            app:layout_constraintTop_toBottomOf="@+id/contentItem1"
+            app:layout_constraintVertical_bias="1.0"
+            tools:hint="14/1/2025" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>
+
