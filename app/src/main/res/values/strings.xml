@@ -8,6 +8,8 @@
     <string name="select_date">Date</string>
     <string name="no_repeat">Do not repeat</string>
     <string name="optional">(Optional)</string>
+    <string name="check">Check</string>
+    <string name="pending">Pending</string>
     <string name="every_weekday">Every weekday</string>
     <string name="every_day">Every day</string>
     <string name="save_button">Save</string>
