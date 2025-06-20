@@ -2,6 +2,10 @@
     <string name="app_name">Dozy</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="home">Home</string>
+    <string name="calendar">Calendar</string>
+    <string name="trading">Trading</string>
+    <string name="settings">Settings</string>
     <string name="add_task_title">Add Task</string>
     <string name="task_title_hint">Title</string>
     <string name="task_description_hint">Description</string>

@@ -3,13 +3,22 @@
     <item
         android:id="@+id/CurrentTask"
         android:icon="@drawable/ic_task_main"
-        android:title="Inicio" />
+        android:title="@string/home" />
     <item
-        android:id="@+id/AddTask"
-        android:icon="@drawable/ic_new_task"
-        android:title="Tareas" />
+        android:id="@+id/Calendar"
+        android:icon="@drawable/ic_calendar"
+        android:title="@string/calendar" />
+
+    <item
+        android:id="@+id/fab"
+        android:enabled="false"
+        android:title="" />
+    <item
+        android:id="@+id/Trading"
+        android:icon="@drawable/baseline_whatshot_24"
+        android:title="@string/trading" />
     <item
         android:id="@+id/Settings"
         android:icon="@drawable/ic_settings"
-        android:title="Perfil" />
+        android:title="@string/settings" />
 </menu>

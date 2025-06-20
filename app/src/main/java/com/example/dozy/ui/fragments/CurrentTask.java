@@ -6,14 +6,10 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
-import com.example.dozy.R;
 import com.example.dozy.data.Task;
-import com.example.dozy.databinding.FragmentAddTaskBinding;
 import com.example.dozy.databinding.FragmentCurrentTaskBinding;
 import com.example.dozy.model.TaskViewModel;
 import com.example.dozy.ui.adapters.AdapterListTask;
@@ -21,9 +17,6 @@ import com.example.dozy.ui.interfaces.OnTaskListener;
 import com.example.dozy.utils.SlideInLeftAnimator;
 import com.example.dozy.utils.SwipeToActionCallback;
 import com.example.dozy.utils.Utils;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
