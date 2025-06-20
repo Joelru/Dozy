@@ -82,7 +82,12 @@ public class CurrentTask extends Fragment implements OnTaskListener {
         binding = FragmentCurrentTaskBinding.inflate(inflater, container, false);
         initRecycler();
         initCallBacks();
+        initViews();
         return binding.getRoot();
+    }
+
+    private void initViews() {
+        binding.tvDate.setText(Utils.getFormattedCurrentDate());
     }
 
     private void initCallBacks() {

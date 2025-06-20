@@ -11,13 +11,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:paddingTop="60dp"
         android:paddingBottom="16dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
+            android:paddingTop="40dp"
+            android:elevation="15dp"
+            android:background="@color/light_gray"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
             android:orientation="horizontal">
 
             <ImageView
@@ -25,8 +26,10 @@
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:layout_gravity="center"
+                android:layout_marginStart="20dp"
                 android:background="@drawable/style_round_green_fill"
                 android:contentDescription="@string/app_name"
+                android:elevation="15dp"
                 android:padding="5dp"
                 android:src="@drawable/ic_icon_app"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -41,6 +44,7 @@
                 android:layout_gravity="center"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="5dp"
+                android:elevation="15dp"
                 android:fontFamily="@font/poppins_black"
                 android:text="@string/app_name"
                 android:textSize="30sp"
@@ -49,15 +53,17 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
+                android:id="@+id/tvDate"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center|bottom"
                 android:layout_marginTop="60dp"
                 android:layout_marginEnd="25dp"
                 android:layout_weight="1"
-                android:fontFamily="@font/poppins_medium"
+                android:textAllCaps="true"
+                android:fontFamily="@font/poppins_bold"
                 android:gravity="end"
-                android:textSize="12sp"
+                android:textSize="11sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:hint="Martes, Jun 19"
@@ -68,7 +74,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginEnd="25dp"
                 android:background="@color/black_transparent"
                 android:elevation="10dp"
                 app:layout_constraintEnd_toEndOf="parent"

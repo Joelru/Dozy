@@ -10,6 +10,10 @@ import androidx.core.content.ContextCompat;
 
 import com.example.dozy.R;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
 public class Utils {
     public static boolean validateText(EditText campo) {
         String text = campo.getText().toString().trim();
@@ -30,5 +34,12 @@ public class Utils {
             itemView.setBackgroundColor(ContextCompat.getColor(context, android.R.color.transparent));
             button.setChecked(false);
         }
+    }
+
+    public static String getFormattedCurrentDate() {
+        Locale locale = new Locale("es", "ES");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("EEEE, d 'de' MMMM", locale);
+        Date currentDate = new Date();
+        return dateFormat.format(currentDate);
     }
 }
