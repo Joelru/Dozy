@@ -1,40 +1,240 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.fragments.CurrentTask">
 
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:paddingTop="60dp"
+        android:paddingBottom="16dp">
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/style_round_bottom_titles"
-            android:orientation="vertical">
+            android:layout_marginStart="20dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/iconApp"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:background="@drawable/style_round_green_fill"
+                android:contentDescription="@string/app_name"
+                android:padding="5dp"
+                android:src="@drawable/ic_icon_app"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ImageContrastCheck" />
 
             <TextView
-                style="@style/Widget.AppCompat.TextView.Title"
+                android:id="@+id/titleApp"
                 android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/poppins_black"
+                android:text="@string/app_name"
+                android:textSize="30sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/iconApp"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center|bottom"
                 android:layout_marginTop="60dp"
-                android:text="@string/today"
-                android:textSize="35sp" />
+                android:layout_marginEnd="25dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="end"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:hint="Martes, Jun 19"
+                tools:ignore="TextContrastCheck" />
 
+            <View
+                android:id="@+id/view"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="25dp"
+                android:background="@color/black_transparent"
+                android:elevation="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/iconApp" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!-- Fila de 2 tarjetas -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="25dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="12dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <!-- CardView 1 -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_marginEnd="8dp"
+                android:layout_weight="1"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="6dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp">
+
+                    <LinearLayout
+                        android:id="@+id/layoutIcon1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/style_round_green_fill"
+                        android:orientation="vertical"
+                        android:padding="10dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <ImageView
+                            android:id="@+id/iconCard1"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:background="@drawable/ic_complete"
+                            android:backgroundTint="@color/white"
+                            android:contentDescription="@string/check"
+                            tools:ignore="ImageContrastCheck" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tvCardTitle1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:fontFamily="@font/poppins_bold"
+                        android:textSize="24sp"
+                        app:layout_constraintStart_toEndOf="@id/layoutIcon1"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:hint="5"
+                        tools:ignore="TextContrastCheck" />
+
+                    <TextView
+                        android:id="@+id/tvCardSubtitle1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:textColor="#666"
+                        android:textSize="12sp"
+                        app:layout_constraintStart_toEndOf="@id/layoutIcon1"
+                        app:layout_constraintTop_toBottomOf="@id/tvCardTitle1"
+                        tools:hint="Hoy"
+                        tools:ignore="TextContrastCheck" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- CardView 2 -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="6dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp">
+
+                    <LinearLayout
+                        android:id="@+id/layoutIcon2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/style_round_purple_fill"
+                        android:orientation="vertical"
+                        android:padding="10dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <ImageView
+                            android:id="@+id/iconCard2"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:background="@drawable/ic_pending"
+                            android:backgroundTint="@color/white"
+                            android:contentDescription="@string/pending" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tvCardTitle2"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:fontFamily="@font/poppins_bold"
+                        android:textSize="24sp"
+                        app:layout_constraintStart_toEndOf="@id/layoutIcon2"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:hint="3"
+                        tools:ignore="TextContrastCheck" />
+
+                    <TextView
+                        android:id="@+id/tvCardSubtitle2"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:textColor="#666"
+                        android:textSize="12sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/layoutIcon2"
+                        app:layout_constraintTop_toBottomOf="@id/tvCardTitle2"
+                        tools:hint="Pendientes"
+                        tools:ignore="TextContrastCheck" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
         </LinearLayout>
 
+        <!-- RecyclerView de tareas -->
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvTaskList"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="50dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
             android:layout_marginBottom="80dp"
+            android:layout_weight="1"
             tools:listitem="@layout/item_task" />
+
     </LinearLayout>
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+
+        android:id="@+id/fbAddTask"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="80dp"
+        android:contentDescription="@string/add_task_title"
+        android:elevation="10dp"
+        android:src="@drawable/ic_add_button"
+        app:backgroundTint="@color/mint_green"
+        app:tint="@color/white"
+        tools:ignore="ImageContrastCheck" />
 
 </FrameLayout>
