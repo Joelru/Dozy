@@ -39,4 +39,12 @@ public class TaskViewModel extends AndroidViewModel {
         repository.update(task);
     }
 
+    public LiveData<Integer> getTaskCountByDate(String date) {
+        return repository.getTaskCountByDate(date);
+    }
+
+    public LiveData<Integer> getTaskCountCompletedtByDate(String date) {
+        return repository.getTaskCompletedCountByDate(date);
+    }
+
 }

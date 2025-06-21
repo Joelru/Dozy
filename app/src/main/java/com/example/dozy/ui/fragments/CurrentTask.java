@@ -3,12 +3,15 @@ package com.example.dozy.ui.fragments;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
 import com.example.dozy.data.Task;
 import com.example.dozy.databinding.FragmentCurrentTaskBinding;
 import com.example.dozy.model.TaskViewModel;
@@ -76,7 +79,27 @@ public class CurrentTask extends Fragment implements OnTaskListener {
         initRecycler();
         initCallBacks();
         initViews();
+        initListeners();
         return binding.getRoot();
+    }
+
+    private void initListeners() {
+        taskViewModel.getTaskCountByDate(binding.tvDate.getText().toString()).observe(getViewLifecycleOwner(), new Observer<Integer>() {
+            @Override
+            public void onChanged(Integer integer) {
+                if (integer != null) {
+                    binding.tvCardTitle2.setText(String.valueOf(integer));
+                }
+            }
+        });
+        taskViewModel.getTaskCountCompletedtByDate(binding.tvDate.getText().toString()).observe(getViewLifecycleOwner(), new Observer<Integer>() {
+            @Override
+            public void onChanged(Integer integer) {
+                if (integer != null) {
+                    binding.tvCardTitle1.setText(String.valueOf(integer));
+                }
+            }
+        });
     }
 
     private void initViews() {

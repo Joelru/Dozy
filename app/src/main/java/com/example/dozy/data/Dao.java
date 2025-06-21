@@ -38,4 +38,10 @@ public interface Dao {
     // Obtener tarea por id
     @Query("SELECT * FROM tasks WHERE id = :id")
     Task getTaskById(int id);
+
+    @Query("SELECT COUNT(*) FROM tasks WHERE dateTask = :selectedDate AND completed = 0")
+    LiveData<Integer> getTaskCountByDate(String selectedDate);
+
+    @Query("SELECT COUNT(*) FROM tasks WHERE dateTask = :selectedDate AND completed = 1")
+    LiveData<Integer> getTaskCompletedCountByDate(String selectedDate);
 }

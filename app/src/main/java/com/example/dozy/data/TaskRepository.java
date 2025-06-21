@@ -19,11 +19,21 @@ public class TaskRepository {
     public void insert(Task task) {
         Executors.newSingleThreadExecutor().execute(() -> taskDao.insert(task));
     }
+
     public void remove(Task task) {
         Executors.newSingleThreadExecutor().execute(() -> taskDao.remove(task));
     }
- public void update(Task task) {
+
+    public void update(Task task) {
         Executors.newSingleThreadExecutor().execute(() -> taskDao.update(task));
+    }
+
+    public LiveData<Integer> getTaskCountByDate(String date) {
+        return taskDao.getTaskCountByDate(date);
+    }
+
+    public LiveData<Integer> getTaskCompletedCountByDate(String date) {
+        return taskDao.getTaskCompletedCountByDate(date);
     }
 
 }

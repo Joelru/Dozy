@@ -98,8 +98,7 @@
                 android:layout_margin="10dp"
                 android:layout_marginEnd="8dp"
                 android:layout_weight="1"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="6dp">
+                app:cardCornerRadius="8dp">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -144,11 +143,11 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="12dp"
+                        android:text="@string/today"
                         android:textColor="#666"
                         android:textSize="12sp"
                         app:layout_constraintStart_toEndOf="@id/layoutIcon1"
                         app:layout_constraintTop_toBottomOf="@id/tvCardTitle1"
-                        tools:hint="Hoy"
                         tools:ignore="TextContrastCheck" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
@@ -159,8 +158,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:layout_weight="1"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="6dp">
+                app:cardCornerRadius="8dp">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -204,12 +202,12 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="12dp"
+                        android:text="@string/pending"
                         android:textColor="#666"
                         android:textSize="12sp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@id/layoutIcon2"
                         app:layout_constraintTop_toBottomOf="@id/tvCardTitle2"
-                        tools:hint="Pendientes"
                         tools:ignore="TextContrastCheck" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
