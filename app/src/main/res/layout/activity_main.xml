@@ -20,7 +20,6 @@
         android:backgroundTint="@android:color/white"
         app:backgroundTint="@color/white"
         app:fabAlignmentMode="center"
-
         app:fabCradleRoundedCornerRadius="50dp"
         app:fabCradleVerticalOffset="10dp"
         app:hideOnScroll="false">
