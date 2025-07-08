@@ -1,6 +1,5 @@
 package com.example.dozy.data;
 
-import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
@@ -9,7 +8,6 @@ public class Task {
 
     @PrimaryKey(autoGenerate = true)
     public int id;
-
     public String titleTask;
     public String contentDescription;
     public String dateTask;
@@ -17,12 +15,23 @@ public class Task {
     public boolean isRecurrent;
     public boolean completed;
 
-    public Task( String titleTask, String contentDescription, String dateTask, String repeatType, boolean isRecurrent, boolean completed) {
+    public String getTitleTask() {
+        return titleTask;
+    }
+
+    public void setTitleTask(String titleTask) {
+        this.titleTask = titleTask;
+    }
+
+    public Task(String titleTask, String contentDescription, String dateTask, String repeatType, boolean isRecurrent, boolean completed) {
         this.titleTask = titleTask;
         this.contentDescription = contentDescription;
         this.dateTask = dateTask;
         this.repeatType = repeatType;
         this.isRecurrent = isRecurrent;
         this.completed = completed;
+    }
+
+    public Task() {
     }
 }
