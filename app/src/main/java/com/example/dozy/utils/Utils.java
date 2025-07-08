@@ -1,24 +1,38 @@
 package com.example.dozy.utils;
 
+import android.app.Activity;
 import android.content.Context;
 import android.graphics.Paint;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.ContextCompat;
+import androidx.fragment.app.FragmentActivity;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.lifecycle.ViewModelStoreOwner;
+import androidx.room.Room;
 
 import com.example.dozy.R;
+import com.example.dozy.data.Task;
+import com.example.dozy.data.TaskDatabase;
+import com.example.dozy.model.TaskViewModel;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
 public class Utils {
+
+    private static TaskViewModel viewModel;
+    private static TaskDatabase tasks;
+
     public static boolean validateText(EditText campo) {
         String text = campo.getText().toString().trim();
         if (text.isEmpty()) {
-            campo.setError("Campo obligatorio");
+            Toast.makeText(campo.getContext(), "Campo vacio", Toast.LENGTH_SHORT).show();
             return false;
         }
         return true;
@@ -42,4 +56,9 @@ public class Utils {
         Date currentDate = new Date();
         return dateFormat.format(currentDate);
     }
+
+    public static void addTask(FragmentActivity activity) {
+        viewModel = new ViewModelProvider(activity).get(TaskViewModel.class);
+    }
+
 }

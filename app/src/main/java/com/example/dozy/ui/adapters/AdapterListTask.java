@@ -1,5 +1,6 @@
 package com.example.dozy.ui.adapters;
 
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,7 +13,7 @@ import com.example.dozy.data.Task;
 import com.example.dozy.databinding.ItemTaskBinding;
 import com.example.dozy.model.TaskViewModel;
 import com.example.dozy.ui.fragments.CurrentTask;
-import com.example.dozy.ui.interfaces.OnTaskListener;
+import com.example.dozy.ui.interfaces.OnCreatedTaskListener;
 import com.example.dozy.utils.Utils;
 
 import java.util.ArrayList;
@@ -21,7 +22,7 @@ import java.util.List;
 public class AdapterListTask extends RecyclerView.Adapter<AdapterListTask.ViewHolder> {
     private List<Task> taskList = new ArrayList<>();
     private TaskViewModel viewModel;
-    private OnTaskListener listener = null;
+    private OnCreatedTaskListener listener = null;
     private CurrentTask context;
 
     public AdapterListTask(CurrentTask context) {
@@ -57,26 +58,44 @@ public class AdapterListTask extends RecyclerView.Adapter<AdapterListTask.ViewHo
         }
 
         void bind(Task task) {
-            if (!binding.contentItem.getText().toString().equals(task.titleTask)) {
-                binding.contentItem.setText(task.titleTask);
-            }
+            boolean isDone = task.completed;
+            Utils.modifyStyle(
+                    itemView.getContext(),
+                    binding.contentItem,
+                    binding.layoutCompletedTask,
+                    binding.checkButtomCompleted,
+                    isDone
+            );
+            binding.checkButtomCompleted.setChecked(isDone);
+
+            binding.contentItem.setText(task.titleTask);
             binding.layoutCompletedTask.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     task.completed = true;
-                    Utils.modifyStyle(view.getContext(), binding.contentItem, binding.layoutCompletedTask, binding.checkButtomCompleted, task.completed);
                     viewModel.update(task);
 
-                    int position = getAdapterPosition();
-                    if (position != RecyclerView.NO_POSITION) {
-                        taskList.remove(position);
-                        notifyItemRemoved(position);
-                    }
+                    Utils.modifyStyle(
+                            view.getContext(),
+                            binding.contentItem,
+                            binding.layoutCompletedTask,
+                            binding.checkButtomCompleted,
+                            true
+                    );
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            int pos = getAdapterPosition();
+                            if (pos != RecyclerView.NO_POSITION) {
+                                taskList.remove(pos);
+                                notifyItemRemoved(pos);
+                            }
+                        }
+                    }, 2000);
+
 
                 }
             });
-
-
         }
     }
 

@@ -1,6 +1,9 @@
 package com.example.dozy.ui.fragments;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
@@ -8,16 +11,10 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-
 import com.example.dozy.data.Task;
 import com.example.dozy.databinding.FragmentCurrentTaskBinding;
 import com.example.dozy.model.TaskViewModel;
 import com.example.dozy.ui.adapters.AdapterListTask;
-import com.example.dozy.ui.interfaces.OnTaskListener;
-import com.example.dozy.utils.SlideInLeftAnimator;
 import com.example.dozy.utils.SwipeToActionCallback;
 import com.example.dozy.utils.Utils;
 
@@ -26,7 +23,7 @@ import com.example.dozy.utils.Utils;
  * Use the {@link CurrentTask#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class CurrentTask extends Fragment implements OnTaskListener {
+public class CurrentTask extends Fragment {
     private AdapterListTask adapter;
     private FragmentCurrentTaskBinding binding;
     private TaskViewModel taskViewModel;
@@ -129,19 +126,10 @@ public class CurrentTask extends Fragment implements OnTaskListener {
         adapter = new AdapterListTask(this);
         binding.rvTaskList.setLayoutManager(new LinearLayoutManager(getContext()));
         binding.rvTaskList.setAdapter(adapter);
-        binding.rvTaskList.setItemAnimator(new SlideInLeftAnimator());
 
         taskViewModel = new ViewModelProvider(requireActivity()).get(TaskViewModel.class);
 
         taskViewModel.getAllTask().observe(getViewLifecycleOwner(), tasks -> adapter.submitList(tasks));
     }
 
-    public void onTaskClick(Task task) {
-
-    }
-
-    @Override
-    public void onTaskLongClick(Task task) {
-
-    }
 }
