@@ -15,6 +15,7 @@ import com.example.dozy.data.Task;
 import com.example.dozy.databinding.FragmentCurrentTaskBinding;
 import com.example.dozy.model.TaskViewModel;
 import com.example.dozy.ui.adapters.AdapterListTask;
+import com.example.dozy.utils.CalendarUtils;
 import com.example.dozy.utils.SwipeToActionCallback;
 import com.example.dozy.utils.Utils;
 
@@ -81,14 +82,6 @@ public class CurrentTask extends Fragment {
     }
 
     private void initListeners() {
-        taskViewModel.getTaskCountByDate(binding.tvDate.getText().toString()).observe(getViewLifecycleOwner(), new Observer<Integer>() {
-            @Override
-            public void onChanged(Integer integer) {
-                if (integer != null) {
-                    binding.tvCardTitle2.setText(String.valueOf(integer));
-                }
-            }
-        });
         taskViewModel.getTaskCountCompletedtByDate(binding.tvDate.getText().toString()).observe(getViewLifecycleOwner(), new Observer<Integer>() {
             @Override
             public void onChanged(Integer integer) {
@@ -97,10 +90,18 @@ public class CurrentTask extends Fragment {
                 }
             }
         });
+        taskViewModel.getTaskCountByDate(binding.tvDate.getText().toString()).observe(getViewLifecycleOwner(), new Observer<Integer>() {
+            @Override
+            public void onChanged(Integer integer) {
+                if (integer != null) {
+                    binding.tvCardTitle2.setText(String.valueOf(integer));
+                }
+            }
+        });
     }
 
     private void initViews() {
-        binding.tvDate.setText(Utils.getFormattedCurrentDate());
+        binding.tvDate.setText(CalendarUtils.getFormattedCurrentDate());
     }
 
     private void initCallBacks() {

@@ -50,13 +50,6 @@ public class Utils {
         }
     }
 
-    public static String getFormattedCurrentDate() {
-        Locale locale = new Locale("es", "ES");
-        SimpleDateFormat dateFormat = new SimpleDateFormat("EEEE, d 'de' MMMM", locale);
-        Date currentDate = new Date();
-        return dateFormat.format(currentDate);
-    }
-
     public static void addTask(FragmentActivity activity) {
         viewModel = new ViewModelProvider(activity).get(TaskViewModel.class);
     }
