@@ -5,7 +5,9 @@ import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Handler;
+import android.util.Log;
 import android.view.Gravity;
+import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.inputmethod.InputMethodManager;
@@ -30,6 +32,7 @@ public class AddTaskDialog {
 
     private final Context context;
     private Dialog dialog;
+    private String datePicker = null;
     private final OnCreatedTaskListener onTaskCreatedListener;
     private BottomsheetLayoutBinding binding;
 
@@ -70,7 +73,6 @@ public class AddTaskDialog {
     private void setupUI() {
         binding.etAddTask.requestFocus();
 
-
         new Handler().postDelayed(() -> {
             InputMethodManager imm = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
             if (imm != null) {
@@ -79,13 +81,19 @@ public class AddTaskDialog {
         }, 200);
 
         binding.btnAddTask.setOnClickListener(v -> {
-            String text = binding.etAddTask.getText().toString().trim();
+            String text = Objects.requireNonNull(binding.etAddTask.getText()).toString().trim();
             if (!text.isEmpty()) {
-                Task newTask = new Task(text, "", "", "", true, false);
+                Task newTask = new Task(text, "", CalendarUtils.getDateToSave(datePicker), "", true, false);
                 onTaskCreatedListener.onTaskCreated(newTask);
                 binding.etAddTask.setText("");
                 dialog.dismiss();
             }
+        });
+
+        binding.buttonCalendar.setOnClickListener(view -> {
+            CalendarUtils.showCalendar(view.getContext(), date -> {
+                datePicker = date;
+            });
         });
     }
 }
