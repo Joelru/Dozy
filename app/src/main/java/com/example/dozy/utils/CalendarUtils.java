@@ -17,16 +17,15 @@ public class CalendarUtils {
     public static void showCalendar(Context context, OnDateSelectedListener listener) {
         final Calendar calendar = Calendar.getInstance();
 
-        int anio = calendar.get(Calendar.YEAR);
+        int yearActual = calendar.get(Calendar.YEAR);
         int mes = calendar.get(Calendar.MONTH);
         int dia = calendar.get(Calendar.DAY_OF_MONTH);
 
         DatePickerDialog datePickerDialog = new DatePickerDialog(context,
                 (DatePicker view, int year, int month, int dayOfMonth) -> {
-                    // Formato de la fecha: dd/MM/yyyy
                     String dateSelected = String.format(Locale.getDefault(), "%02d/%02d/%d", dayOfMonth, month + 1, year);
                     listener.OnDateSelected(dateSelected);
-                }, anio, mes, dia);
+                }, yearActual, mes, dia);
 
         datePickerDialog.show();
     }

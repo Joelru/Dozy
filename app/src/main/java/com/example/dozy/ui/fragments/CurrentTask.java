@@ -1,6 +1,7 @@
 package com.example.dozy.ui.fragments;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,7 +18,6 @@ import com.example.dozy.model.TaskViewModel;
 import com.example.dozy.ui.adapters.AdapterListTask;
 import com.example.dozy.utils.CalendarUtils;
 import com.example.dozy.utils.SwipeToActionCallback;
-import com.example.dozy.utils.Utils;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -82,17 +82,19 @@ public class CurrentTask extends Fragment {
     }
 
     private void initListeners() {
-        taskViewModel.getTaskCountCompletedtByDate(binding.tvDate.getText().toString()).observe(getViewLifecycleOwner(), new Observer<Integer>() {
+        taskViewModel.getTaskCountCompletedByDate().observe(getViewLifecycleOwner(), new Observer<Integer>() {
             @Override
             public void onChanged(Integer integer) {
+                Log.e("LogsData", "TaskCompleted count" + integer);
                 if (integer != null) {
                     binding.tvCardTitle1.setText(String.valueOf(integer));
                 }
             }
         });
-        taskViewModel.getTaskCountByDate(binding.tvDate.getText().toString()).observe(getViewLifecycleOwner(), new Observer<Integer>() {
+        taskViewModel.getTaskCountByDate().observe(getViewLifecycleOwner(), new Observer<Integer>() {
             @Override
             public void onChanged(Integer integer) {
+                Log.e("LogsData", "TaskPending count" + integer);
                 if (integer != null) {
                     binding.tvCardTitle2.setText(String.valueOf(integer));
                 }
