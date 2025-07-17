@@ -2,6 +2,9 @@ package com.example.dozy.data;
 
 import androidx.lifecycle.LiveData;
 
+import com.example.dozy.utils.CalendarUtils;
+import com.example.dozy.utils.Utils;
+
 import java.util.List;
 import java.util.concurrent.Executors;
 
@@ -28,12 +31,12 @@ public class TaskRepository {
         Executors.newSingleThreadExecutor().execute(() -> taskDao.update(task));
     }
 
-    public LiveData<Integer> getTaskCountByDate(String date) {
-        return taskDao.getTaskCountByDate(date);
+    public LiveData<Integer> getTaskCountByDate() {
+        return taskDao.getTaskCountByDate(CalendarUtils.getDateToday());
     }
 
-    public LiveData<Integer> getTaskCompletedCountByDate(String date) {
-        return taskDao.getTaskCompletedCountByDate(date);
+    public LiveData<Integer> getTaskCompletedCountByDate() {
+        return taskDao.getTaskCompletedCountByDate(CalendarUtils.getDateToday());
     }
 
 }
