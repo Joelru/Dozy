@@ -34,7 +34,7 @@ public abstract class SwipeToActionCallback extends ItemTouchHelper.SimpleCallba
     public SwipeToActionCallback(Context context) {
         super(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT);
         deleteIcon = ContextCompat.getDrawable(context, R.drawable.ic_delete);
-        completeIcon = ContextCompat.getDrawable(context, R.drawable.ic_delete);
+        completeIcon = ContextCompat.getDrawable(context, R.drawable.ic_complete);
         deleteBackground = new ColorDrawable(Color.parseColor("#FF3B30"));   // rojo
         completeBackground = new ColorDrawable(Color.parseColor("#4CAF50")); // verde
 
