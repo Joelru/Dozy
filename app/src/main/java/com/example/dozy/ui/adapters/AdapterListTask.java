@@ -82,18 +82,12 @@ public class AdapterListTask extends RecyclerView.Adapter<AdapterListTask.ViewHo
                             binding.checkButtomCompleted,
                             true
                     );
-                    new Handler().postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            int pos = getAdapterPosition();
-                            if (pos != RecyclerView.NO_POSITION) {
-                                taskList.remove(pos);
-                                notifyItemRemoved(pos);
-                            }
-                        }
-                    }, 2000);
 
-
+                    int pos = getAdapterPosition();
+                    if (pos != RecyclerView.NO_POSITION) {
+                        taskList.remove(pos);
+                        notifyItemRemoved(pos);
+                    }
                 }
             });
         }

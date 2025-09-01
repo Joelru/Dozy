@@ -128,7 +128,7 @@
 
                     <TextView
                         android:id="@+id/tvCardTitle1"
-                        android:layout_width="0dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="12dp"
                         android:fontFamily="@font/poppins_bold"
@@ -187,7 +187,7 @@
 
                     <TextView
                         android:id="@+id/tvCardTitle2"
-                        android:layout_width="0dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="12dp"
                         android:fontFamily="@font/poppins_bold"
