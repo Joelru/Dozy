@@ -78,6 +78,7 @@ public class CurrentTask extends Fragment {
         initCallBacks();
         initViews();
         initListeners();
+        binding.searchBar.setOnClickListener(v -> binding.searchView.show());
         return binding.getRoot();
     }
 
