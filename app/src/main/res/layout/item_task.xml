@@ -3,80 +3,54 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginHorizontal="40dp"
-    android:layout_marginVertical="8dp"
     app:cardCornerRadius="5dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/layoutCompletedTask"
+        android:id="@+id/taskLayout"
+        android:background="@color/mint_white"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="5dp"
         android:paddingBottom="10dp">
 
-        <RadioButton
-
+        <androidx.appcompat.widget.AppCompatCheckBox
             android:id="@+id/check_buttom_completed"
             android:layout_width="30dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            app:buttonTint="@color/default_gray"
+            android:layout_marginHorizontal="16dp"
+            app:buttonTint="@color/teal_green"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/contentItem"
+            style="@style/TextViewCard"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="25dp"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="8dp"
             android:ellipsize="end"
-            android:fontFamily="@font/poppins_medium"
             android:maxLines="1"
-            android:textSize="15sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/check_buttom_completed"
             app:layout_constraintTop_toTopOf="parent"
             tools:hint="Design system architecture" />
 
-        <LinearLayout
-            android:id="@+id/categoryItem"
+
+        <TextView
+            android:id="@+id/contentTime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:orientation="horizontal"
-            android:padding="2dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@id/check_buttom_completed"
-            app:layout_constraintTop_toBottomOf="@+id/contentItem">
-
-
-            <ImageView
-                android:id="@+id/iconCategory"
-                android:layout_width="15dp"
-                android:layout_height="15dp"
-                android:layout_marginStart="5dp"
-                android:background="@drawable/ic_category_work"
-                android:backgroundTint="@color/default_gray" />
-
-            <TextView
-                android:id="@+id/contentCategory"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginStart="4dp"
-                android:layout_marginEnd="5dp"
-                android:ellipsize="end"
-                android:fontFamily="@font/poppins_medium"
-                android:maxLines="1"
-                android:textSize="10sp"
-                app:layout_constraintBottom_toBottomOf="@id/iconCategory"
-                app:layout_constraintStart_toEndOf="@id/iconCategory"
-                app:layout_constraintTop_toTopOf="@id/iconCategory"
-                tools:hint="Work" />
-        </LinearLayout>
-
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="16dp"
+            android:fontFamily="@font/lexend_regular"
+            android:maxLines="1"
+            android:textColor="@color/teal_green"
+            android:textSize="14sp"
+            app:layout_constraintStart_toEndOf="@+id/check_buttom_completed"
+            app:layout_constraintTop_toBottomOf="@+id/contentItem"
+            tools:hint="10:00 AM" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

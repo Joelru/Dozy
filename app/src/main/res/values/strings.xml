@@ -19,6 +19,9 @@
     <string name="every_day">Every day</string>
     <string name="save_button">Save</string>
     <string name="select_days">Select Days</string>
+
+
+    //Fechas
     <string name="monday">Monday</string>
     <string name="tuesday">Tuesday</string>
     <string name="wednesday">Wednesday</string>
@@ -27,4 +30,17 @@
     <string name="saturday">Saturday</string>
     <string name="sunday">Sunday</string>
     <string name="today">Today</string>
+
+    //hints
+    <string name="search">Search</string>
+    <string name="all">Todas</string>
+    <string name="work">Trabajo</string>
+    <string name="personal">Personal</string>
+
+    //texts
+    <string name="vs">Completados vs. Pendientes</string>
+    <string name="vsValue">0/0</string>
+    <string name="task">Tareas</string>
+
+
 </resources>

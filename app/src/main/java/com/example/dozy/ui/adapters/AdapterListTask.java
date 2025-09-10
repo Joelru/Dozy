@@ -59,29 +59,29 @@ public class AdapterListTask extends RecyclerView.Adapter<AdapterListTask.ViewHo
 
         void bind(Task task) {
             boolean isDone = task.completed;
-            Utils.modifyStyle(
-                    itemView.getContext(),
-                    binding.contentItem,
-                    binding.layoutCompletedTask,
-                    binding.checkButtomCompleted,
-                    isDone
-            );
+//            Utils.modifyStyle(
+//                    itemView.getContext(),
+//                    binding.contentItem,
+//                    binding.layoutCompletedTask,
+//                    binding.checkButtomCompleted,
+//                    isDone
+//            );
             binding.checkButtomCompleted.setChecked(isDone);
 
             binding.contentItem.setText(task.titleTask);
-            binding.layoutCompletedTask.setOnClickListener(new View.OnClickListener() {
+            binding.taskLayout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     task.completed = true;
                     viewModel.update(task);
 
-                    Utils.modifyStyle(
-                            view.getContext(),
-                            binding.contentItem,
-                            binding.layoutCompletedTask,
-                            binding.checkButtomCompleted,
-                            true
-                    );
+//                    Utils.modifyStyle(
+//                            view.getContext(),
+//                            binding.contentItem,
+//                            binding.layoutCompletedTask,
+//                            binding.checkButtomCompleted,
+//                            true
+//                    );
 
                     int pos = getAdapterPosition();
                     if (pos != RecyclerView.NO_POSITION) {
