@@ -19,6 +19,8 @@ import com.example.dozy.ui.adapters.AdapterListTask;
 import com.example.dozy.utils.CalendarUtils;
 import com.example.dozy.utils.SwipeToActionCallback;
 
+import java.util.Arrays;
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link CurrentTask#newInstance} factory method to
@@ -83,12 +85,14 @@ public class CurrentTask extends Fragment {
     }
 
     private void initListeners() {
+         String[] tvVersus = {"0", "/", "0"};
         taskViewModel.getTaskCountCompletedByDate().observe(getViewLifecycleOwner(), new Observer<Integer>() {
             @Override
             public void onChanged(Integer integer) {
                 Log.e("LogsData", "TaskCompleted count" + integer);
                 if (integer != null) {
-                    binding.tvCardTitle1.setText(String.valueOf(integer));
+                    tvVersus[0] = String.valueOf(integer);
+                    binding.tvVersus.setText(new StringBuilder().append(tvVersus[0]).append(tvVersus[1]).append(tvVersus[2]).toString());
                 }
             }
         });
@@ -97,14 +101,16 @@ public class CurrentTask extends Fragment {
             public void onChanged(Integer integer) {
                 Log.e("LogsData", "TaskPending count" + integer);
                 if (integer != null) {
-                    binding.tvCardTitle2.setText(String.valueOf(integer));
+                    tvVersus[2] = String.valueOf(integer);
+                    binding.tvVersus.setText(new StringBuilder().append(tvVersus[0]).append(tvVersus[1]).append(tvVersus[2]).toString());
+
                 }
             }
         });
     }
 
     private void initViews() {
-        binding.tvDate.setText(CalendarUtils.getFormattedCurrentDate());
+        CalendarUtils.getFormattedCurrentDate();
     }
 
     private void initCallBacks() {

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/mint_white"
     tools:context=".ui.fragments.CurrentTask">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -37,6 +38,7 @@
 
         <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/appBarLayout"
+            android:background="@color/mint_white"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
@@ -126,6 +128,7 @@
                 android:text="@string/vs" />
 
             <TextView
+                android:id="@+id/tvVersus"
                 style="@style/TextViewCard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -133,7 +136,6 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="24dp"
                 android:fontFamily="@font/lexend_bold"
-                android:text="@string/vsValue"
                 android:textSize="24sp" />
         </LinearLayout>
 
@@ -141,10 +143,9 @@
             android:id="@+id/textTask"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
             android:fontFamily="@font/lexend_bold"
             android:paddingHorizontal="16dp"
-            android:paddingTop="20dp"
+            android:paddingTop="16dp"
             android:paddingBottom="12dp"
             android:text="@string/task"
             android:textColor="@color/dark_forest"
@@ -153,225 +154,20 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cardVs" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-    //............
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/light_gray"
-
-        android:elevation="15dp"
-        android:orientation="horizontal"
-        android:paddingTop="40dp"
-        android:visibility="gone">
-
-        <ImageView
-            android:id="@+id/iconApp"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_gravity="center"
-            android:layout_marginStart="20dp"
-            android:background="@drawable/style_round_green_fill"
-            android:contentDescription="@string/app_name"
-            android:elevation="15dp"
-            android:padding="5dp"
-            android:src="@drawable/ic_icon_app"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="ImageContrastCheck" />
-
-        <TextView
-            android:id="@+id/titleApp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="5dp"
-            android:elevation="15dp"
-            android:fontFamily="@font/poppins_black"
-            android:text="@string/app_name"
-            android:textSize="30sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@id/iconApp"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/tvDate"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center|bottom"
-            android:layout_marginTop="60dp"
-            android:layout_marginEnd="25dp"
-            android:layout_weight="1"
-            android:fontFamily="@font/poppins_bold"
-            android:gravity="end"
-            android:textAllCaps="true"
-            android:textSize="11sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:hint="Martes, Jun 19"
-            tools:ignore="TextContrastCheck" />
-
-        <View
-            android:id="@+id/view"
+        <!-- RecyclerView de tareas -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvTaskList"
             android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginTop="10dp"
-            android:background="@color/black_transparent"
-            android:elevation="10dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            android:layout_weight="1"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/iconApp" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textTask"
+            tools:listitem="@layout/item_task" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <!-- Fila de 2 tarjetas -->
-    <LinearLayout
-        android:layout_width="match_parent"
-
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="25dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginBottom="12dp"
-        android:gravity="center"
-        android:orientation="horizontal"
-        android:visibility="gone">
-
-        <!-- CardView 1 -->
-        <androidx.cardview.widget.CardView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:layout_marginEnd="8dp"
-            android:layout_weight="1"
-            app:cardCornerRadius="8dp">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="16dp">
-
-                <LinearLayout
-                    android:id="@+id/layoutIcon1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/style_round_green_fill"
-                    android:orientation="vertical"
-                    android:padding="10dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
-
-                    <ImageView
-                        android:id="@+id/iconCard1"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:background="@drawable/ic_complete"
-                        android:backgroundTint="@color/white"
-                        android:contentDescription="@string/check"
-                        tools:ignore="ImageContrastCheck" />
-                </LinearLayout>
-
-                <TextView
-                    android:id="@+id/tvCardTitle1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
-                    android:fontFamily="@font/poppins_bold"
-                    android:textSize="24sp"
-                    app:layout_constraintStart_toEndOf="@id/layoutIcon1"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:hint="5"
-                    tools:ignore="TextContrastCheck" />
-
-                <TextView
-                    android:id="@+id/tvCardSubtitle1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
-                    android:text="@string/today"
-                    android:textColor="#666"
-                    android:textSize="12sp"
-                    app:layout_constraintStart_toEndOf="@id/layoutIcon1"
-                    app:layout_constraintTop_toBottomOf="@id/tvCardTitle1"
-                    tools:ignore="TextContrastCheck" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </androidx.cardview.widget.CardView>
-
-        <!-- CardView 2 -->
-        <androidx.cardview.widget.CardView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:layout_weight="1"
-            app:cardCornerRadius="8dp">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="16dp">
-
-                <LinearLayout
-                    android:id="@+id/layoutIcon2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/style_round_purple_fill"
-                    android:orientation="vertical"
-                    android:padding="10dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
-
-                    <ImageView
-                        android:id="@+id/iconCard2"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:background="@drawable/ic_pending"
-                        android:backgroundTint="@color/white"
-                        android:contentDescription="@string/pending" />
-                </LinearLayout>
-
-                <TextView
-                    android:id="@+id/tvCardTitle2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
-                    android:fontFamily="@font/poppins_bold"
-                    android:textSize="24sp"
-                    app:layout_constraintStart_toEndOf="@id/layoutIcon2"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:hint="3"
-                    tools:ignore="TextContrastCheck" />
-
-                <TextView
-                    android:id="@+id/tvCardSubtitle2"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
-                    android:text="@string/pending"
-                    android:textColor="#666"
-                    android:textSize="12sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/layoutIcon2"
-                    app:layout_constraintTop_toBottomOf="@id/tvCardTitle2"
-                    tools:ignore="TextContrastCheck" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </androidx.cardview.widget.CardView>
-    </LinearLayout>
-
-    <!-- RecyclerView de tareas -->
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvTaskList"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="80dp"
-        android:layout_weight="1"
-        android:visibility="gone"
-        tools:listitem="@layout/item_task" />
 
 </FrameLayout>
 
